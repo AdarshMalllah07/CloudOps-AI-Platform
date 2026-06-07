@@ -1,15 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route("/")
-def home():
-    return """
-    <h1>CloudOps AI Platform</h1>
-    <p>Application running successfully.</p>
-    """
-
+def dashboard():
+    return render_template("infrastructure/dashboard.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
