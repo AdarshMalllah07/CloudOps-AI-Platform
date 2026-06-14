@@ -3,15 +3,30 @@
 
 <head>
     <title>CloudOps AI Platform</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  
-    <h1>CloudOps AI Platform</h1>
-    <hr>
 
-    {% block content %}
-    {% endblock %}
+    <div class="header">
+        <h2>CloudOps AI Platform</h2>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li>Dashboard</li>
+            <li>Infrastructure</li>
+            <li>Monitoring</li>
+            <li>Cost Optimization</li>
+            <li>AI Assistant</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 
 </body>
 
