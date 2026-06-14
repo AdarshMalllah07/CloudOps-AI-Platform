@@ -5,8 +5,9 @@ def register_routes(app):
 
     @app.route("/")
     def dashboard():
-        return render_template("dashboard/dashboard.html")
-
+        return render_template(
+            "dashboard/dashboard.html"
+        )
     @app.route("/infrastructure")
     def infrastructure():
         return render_template("infrastructure/infrastructure.html")
