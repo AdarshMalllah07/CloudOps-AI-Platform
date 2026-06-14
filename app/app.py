@@ -1,10 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask
+from config import Config
+from routes import register_routes
 
 app = Flask(__name__)
 
-@app.route("/")
-def dashboard():
-    return render_template("infrastructure/dashboard.html")
+app.config.from_object(Config)
+
+register_routes(app)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)    
