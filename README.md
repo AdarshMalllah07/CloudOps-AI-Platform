@@ -1,40 +1,35 @@
-# CloudOps AI Platform
+CloudOps-AI-Platform
 
-## Overview
-
-CloudOps AI Platform is an AI-powered cloud operations platform designed to manage infrastructure, monitor resources, optimize cloud costs, and automate operational workflows.
-
-## Features
-
-### Phase 1
-- Flask Application Setup
-- Infrastructure Dashboard
-- Project Documentation
-
-### Upcoming Features
+Features
+- Infrastructure Inventory Management
+- Environment Tracking
+- Server Management
+- Application Inventory
 - PostgreSQL Integration
-- Infrastructure Inventory
-- Docker & Docker Compose
-- Prometheus Monitoring
-- Grafana Dashboards
-- Terraform Infrastructure
-- AWS Deployment
-- GitHub Actions CI/CD
-- AI Recommendations
-- FinOps Cost Optimization
+- Docker Containerization
+- Docker Compose Deployment
 
-## Tech Stack
-
+Tech Stack
 - Python
 - Flask
 - PostgreSQL
 - Docker
-- Terraform
-- AWS
-- Prometheus
-- Grafana
-- GitHub Actions
+- Docker Compose
+- GitHub
 
-## Project Status
+Architecture
 
-Phase 1 - Completed
+Flask Application
+       |
+       v
+Repository Layer
+       |
+       v
+PostgreSQL Database
+
+Run Locally
+
+docker compose up -d
+
+Application:
+http://localhost:5000
