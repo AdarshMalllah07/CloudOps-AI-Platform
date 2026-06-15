@@ -23,5 +23,29 @@
     {% endfor %}
 
 </table>
+<h2>Servers</h2>
 
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>ID</th>
+        <th>Environment</th>
+        <th>Hostname</th>
+        <th>IP Address</th>
+        <th>Operating System</th>
+        <th>Status</th>
+    </tr>
+
+    {% for server in servers %}
+    <tr>
+        <td>{{ server.id }}</td>
+        <td>{{ server.environment_name }}</td>
+        <td>{{ server.hostname }}</td>
+        <td>{{ server.ip_address }}</td>
+        <td>{{ server.operating_system }}</td>
+        <td>{{ server.status }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
 {% endblock %}
