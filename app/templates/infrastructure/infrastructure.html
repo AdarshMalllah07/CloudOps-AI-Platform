@@ -48,4 +48,28 @@
     {% endfor %}
 
 </table>
+
+<h2>Applications</h2>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>ID</th>
+        <th>Server</th>
+        <th>Application</th>
+        <th>Version</th>
+        <th>Status</th>
+    </tr>
+
+    {% for application in applications %}
+    <tr>
+        <td>{{ application.id }}</td>
+        <td>{{ application.hostname }}</td>
+        <td>{{ application.name }}</td>
+        <td>{{ application.version }}</td>
+        <td>{{ application.status }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
 {% endblock %}
