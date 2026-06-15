@@ -4,31 +4,23 @@
 
 <h1>Infrastructure</h1>
 
+<h2>Environments</h2>
+
 <table border="1" cellpadding="10">
 
     <tr>
-        <th>Environment</th>
-        <th>Server</th>
-        <th>Status</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
     </tr>
 
+    {% for environment in environments %}
     <tr>
-        <td>Production</td>
-        <td>nginx-prod-01</td>
-        <td>Running</td>
+        <td>{{ environment.id }}</td>
+        <td>{{ environment.name }}</td>
+        <td>{{ environment.description }}</td>
     </tr>
-
-    <tr>
-        <td>Production</td>
-        <td>api-prod-01</td>
-        <td>Running</td>
-    </tr>
-
-    <tr>
-        <td>Development</td>
-        <td>dev-api-01</td>
-        <td>Running</td>
-    </tr>
+    {% endfor %}
 
 </table>
 

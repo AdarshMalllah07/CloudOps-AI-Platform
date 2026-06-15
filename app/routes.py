@@ -1,4 +1,5 @@
 from flask import render_template
+from environment_repository import get_all_environments
 
 
 def register_routes(app):
@@ -8,9 +9,16 @@ def register_routes(app):
         return render_template(
             "dashboard/dashboard.html"
         )
+
     @app.route("/infrastructure")
     def infrastructure():
-        return render_template("infrastructure/infrastructure.html")
+
+        environments = get_all_environments()
+
+        return render_template(
+            "infrastructure/infrastructure.html",
+            environments=environments
+        )
 
     @app.route("/monitoring")
     def monitoring():
