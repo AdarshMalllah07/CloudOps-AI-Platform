@@ -1,3 +1,6 @@
+# CloudOps-AI-Platform
+
+![CI](https://github.com/AdarshMalllah07/CloudOps-AI-Platform/actions/workflows/ci.yml/badge.svg)
 CloudOps-AI-Platform
 
 Features
