@@ -3,7 +3,7 @@ resource "aws_instance" "cloudops_server" {
   ami           = "ami-006f82a1d5a27da54"
   instance_type = var.instance_type
 
-  key_name = "cloudops-key"
+  key_name = "cloudops-key-v2"
 
   vpc_security_group_ids = [
     aws_security_group.cloudops_sg.id
