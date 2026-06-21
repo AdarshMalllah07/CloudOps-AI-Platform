@@ -31,6 +31,14 @@ The platform demonstrates modern DevOps practices including:
 
 ---
 
+## Service Endpoints
+
+| Service | URL |
+|----------|------|
+| Flask Application | http://localhost:5000 |
+| Grafana Dashboard | http://localhost:3000 |
+| Prometheus | http://localhost:9090 |
+
 ## Architecture
 
 screenshots/CloudOps AI platform Architecture diagram.png
@@ -127,6 +135,11 @@ Application Metrics
 | PostgreSQL | Internal Docker Network |
 
 
+## Key Achievements
 
-Application:
-http://localhost:5000
+- Provisioned AWS Infrastructure using Terraform
+- Automated CI/CD using GitHub Actions
+- Containerized Application Stack using Docker Compose
+- Integrated Prometheus Monitoring and Grafana Dashboards
+- Implemented AI-based Incident Analysis Engine
+- Deployed Production Environment on AWS EC2
