@@ -1,3 +1,21 @@
+<div class="card">
+    <h2>AI Infrastructure Health</h2>
+
+    <p><strong>Severity:</strong> {{ analysis.severity }}</p>
+
+    <ul>
+        {% for issue in analysis.issues %}
+        <li>{{ issue }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for recommendation in analysis.recommendations %}
+        <li>{{ recommendation }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
 {% extends "layouts/base.html" %}
 
 {% block content %}

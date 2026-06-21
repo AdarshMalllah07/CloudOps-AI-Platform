@@ -66,3 +66,9 @@ def register_routes(app):
         "ai/assistant.html",
         analysis=analysis
     )
+
+analysis = analyze_incident(
+    cpu_usage=85,
+    memory_usage=72,
+    disk_usage=60
+)

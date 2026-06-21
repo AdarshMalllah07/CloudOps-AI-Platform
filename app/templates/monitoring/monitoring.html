@@ -1,13 +1,16 @@
-{% extends "layouts/base.html" %}
+<h2>Monitoring Overview</h2>
 
-{% block content %}
+<div>
+    <h3>Prometheus</h3>
+    <p>Status: Running</p>
+</div>
 
-<h1>Monitoring</h1>
+<div>
+    <h3>Grafana</h3>
+    <p>Status: Running</p>
+</div>
 
-<ul>
-    <li>CPU Usage: 35%</li>
-    <li>Memory Usage: 48%</li>
-    <li>Disk Usage: 62%</li>
-</ul>
-
-{% endblock %}
+<div>
+    <h3>Application Metrics</h3>
+    <p>Exposed on /metrics</p>
+</div>

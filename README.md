@@ -33,26 +33,99 @@ The platform demonstrates modern DevOps practices including:
 
 ## Architecture
 
+screenshots/CloudOps AI platform Architecture diagram.png
+
 ```text
                            GitHub Repository
                                    │
                                    ▼
-                          GitHub Actions CI
+                        GitHub Actions CI/CD
                                    │
                                    ▼
                          AWS EC2 Infrastructure
                                    │
-             ┌─────────────────────┼─────────────────────┐
-             │                     │                     │
-             ▼                     ▼                     ▼
-      Flask Application      PostgreSQL DB       Prometheus
-             │                                       │
-             └─────────────────────┬─────────────────┘
-                                   ▼
-                               Grafana
+                    Docker Compose Orchestration
                                    │
-                                   ▼
-                          Monitoring Dashboards
+       ┌───────────────┬───────────────┬───────────────┐
+       │               │               │               │
+       ▼               ▼               ▼               ▼
+ Flask Application  PostgreSQL DB  Prometheus      Grafana
+       │               │               │               │
+       │               │               ▼               │
+       │               │      Metrics Collection      │
+       │               │               │               │
+       └───────────────┴───────┬───────┴───────────────┘
+                               │
+                               ▼
+                     AI Incident Analysis Engine
+                               │
+                               ▼
+                   Infrastructure Health Insights
+```
+
+### Infrastructure Components
+
+| Component | Purpose |
+|------------|----------|
+| GitHub | Source code management |
+| GitHub Actions | Continuous Integration & Deployment |
+| Terraform | Infrastructure as Code provisioning |
+| AWS EC2 | Cloud hosting environment |
+| Docker Compose | Multi-container orchestration |
+| Flask | Backend application and dashboard |
+| PostgreSQL | Persistent data storage |
+| Prometheus | Metrics collection and monitoring |
+| Grafana | Visualization and dashboards |
+| AI Incident Analysis | Automated infrastructure health recommendations |
+
+### Deployment Flow
+
+```text
+Developer
+    │
+    ▼
+Push Code to GitHub
+    │
+    ▼
+GitHub Actions CI Pipeline
+    │
+    ▼
+Automated Deployment to AWS EC2
+    │
+    ▼
+Docker Compose Rebuild
+    │
+    ▼
+Updated Application Available
+```
+
+### Monitoring Flow
+
+```text
+Application Metrics
+        │
+        ▼
+   Prometheus
+        │
+        ▼
+    Grafana
+        │
+        ▼
+ Infrastructure Dashboard
+        │
+        ▼
+ AI Incident Analysis
+```
+
+### Access Points
+
+| Service | URL |
+|----------|------|
+| Flask Application | http://localhost:5000 |
+| Grafana Dashboard | http://localhost:3000 |
+| Prometheus | http://localhost:9090 |
+| PostgreSQL | Internal Docker Network |
+
 
 
 Application:
