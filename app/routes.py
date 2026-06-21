@@ -1,6 +1,6 @@
 from flask import render_template
 from services.incident_analyzer import analyze_incident
-
+from services.prometheus_service import get_system_metrics
 from metrics import request_counter
 
 from environment_repository import get_all_environments
@@ -56,19 +56,18 @@ def register_routes(app):
     @app.route("/ai-assistant")
     def ai_assistant():
 
-     analysis = analyze_incident(
-        cpu_usage=85,
-        memory_usage=72,
-        disk_usage=60
-    )
+        request_counter.inc()
 
-     return render_template(
-        "ai/assistant.html",
-        analysis=analysis
-    )
+        metrics = get_system_metrics()
 
-analysis = analyze_incident(
-    cpu_usage=85,
-    memory_usage=72,
-    disk_usage=60
-)
+        analysis = analyze_incident(
+            cpu_usage=metrics["cpu"],
+            memory_usage=metrics["memory"],
+            disk_usage=metrics["disk"]
+        )
+
+        return render_template(
+            "ai/assistant.html",
+            analysis=analysis,
+            metrics=metrics
+        )

@@ -3,15 +3,12 @@ services:
   postgres:
     image: postgres:17
     container_name: cloudops-postgres
-
     environment:
       POSTGRES_DB: cloudops_ai_platform
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres123
-
     ports:
       - "5432:5432"
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
@@ -20,42 +17,41 @@ services:
   cloudops-app:
     build: .
     container_name: cloudops-app
-
     ports:
       - "5000:5000"
-
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
       DB_NAME: cloudops_ai_platform
       DB_USER: postgres
       DB_PASSWORD: postgres123
-
     depends_on:
       - postgres
 
   prometheus:
     image: prom/prometheus
     container_name: cloudops-prometheus
-
     ports:
       - "9090:9090"
-
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
-
     depends_on:
       - cloudops-app
 
   grafana:
     image: grafana/grafana
     container_name: cloudops-grafana
-
     ports:
       - "3000:3000"
-
     depends_on:
       - prometheus
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: cloudops-node-exporter
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
 
 volumes:
   postgres_data:

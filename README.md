@@ -146,3 +146,7 @@ Application Metrics
 - AWS CloudWatch Monitoring
 - Amazon SNS Email Alerts
 - Automated Incident Notifications
+- Real-time Infrastructure Monitoring using Prometheus
+- Node Exporter Metrics Collection
+- AI-Powered Incident Analysis based on live metrics
+- Automated Alerting with CloudWatch and SNS

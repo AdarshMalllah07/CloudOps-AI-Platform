@@ -17,3 +17,11 @@
     <li>{{ recommendation }}</li>
     {% endfor %}
 </ul>
+
+<h2>Live Infrastructure Metrics</h2>
+
+<ul>
+    <li>CPU Usage: {{ metrics.cpu }}%</li>
+    <li>Memory Usage: {{ metrics.memory }}%</li>
+    <li>Disk Usage: {{ metrics.disk }}%</li>
+</ul>
