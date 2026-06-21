@@ -39,9 +39,9 @@ The platform demonstrates modern DevOps practices including:
 | Grafana Dashboard | http://localhost:3000 |
 | Prometheus | http://localhost:9090 |
 
-## Architecture
+## Architecture Diagram
 
-screenshots/CloudOps AI platform Architecture diagram.png
+![Architecture Diagram](screenshots/CloudOps%20AI%20platform%20Architecture%20diagram.png)
 
 ```text
                            GitHub Repository
