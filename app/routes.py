@@ -1,4 +1,5 @@
 from flask import render_template
+from services.incident_analyzer import analyze_incident
 
 from metrics import request_counter
 
@@ -55,8 +56,13 @@ def register_routes(app):
     @app.route("/ai-assistant")
     def ai_assistant():
 
-        request_counter.inc()
+     analysis = analyze_incident(
+        cpu_usage=85,
+        memory_usage=72,
+        disk_usage=60
+    )
 
-        return render_template(
-            "ai/assistant.html"
-        )
+     return render_template(
+        "ai/assistant.html",
+        analysis=analysis
+    )

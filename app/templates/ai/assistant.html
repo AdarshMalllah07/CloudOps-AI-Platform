@@ -1,20 +1,19 @@
-{% extends "layouts/base.html" %}
+<h1>AI Incident Assistant</h1>
 
-{% block content %}
+<h2>Severity: {{ analysis.severity }}</h2>
 
-<h1>AI Assistant</h1>
+<h3>Detected Issues</h3>
 
-<div class="card">
+<ul>
+    {% for issue in analysis.issues %}
+    <li>{{ issue }}</li>
+    {% endfor %}
+</ul>
 
-    <p>
-        Recommendation
-    </p>
+<h3>Recommendations</h3>
 
-    <p>
-        CPU usage increased on production server.
-        Consider scaling application instances.
-    </p>
-
-</div>
-
-{% endblock %}
+<ul>
+    {% for recommendation in analysis.recommendations %}
+    <li>{{ recommendation }}</li>
+    {% endfor %}
+</ul>
