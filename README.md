@@ -43,32 +43,40 @@ The platform demonstrates modern DevOps practices including:
 
 ![Architecture Diagram](screenshots/CloudOps%20AI%20platform%20Architecture%20diagram.png)
 
+
 ```text
-                           GitHub Repository
-                                   │
-                                   ▼
-                        GitHub Actions CI/CD
-                                   │
-                                   ▼
-                         AWS EC2 Infrastructure
-                                   │
-                    Docker Compose Orchestration
-                                   │
-       ┌───────────────┬───────────────┬───────────────┐
-       │               │               │               │
-       ▼               ▼               ▼               ▼
- Flask Application  PostgreSQL DB  Prometheus      Grafana
-       │               │               │               │
-       │               │               ▼               │
-       │               │      Metrics Collection      │
-       │               │               │               │
-       └───────────────┴───────┬───────┴───────────────┘
-                               │
-                               ▼
-                     AI Incident Analysis Engine
-                               │
-                               ▼
-                   Infrastructure Health Insights
+                        GitHub Repository
+                                │
+                                ▼
+                      GitHub Actions CI/CD
+                                │
+                                ▼
+                           ArgoCD GitOps
+                                │
+                                ▼
+                          Helm Charts
+                                │
+                                ▼
+                     Kubernetes Cluster
+                                │
+        ┌───────────────┬───────────────┬───────────────┐
+        │               │               │
+        ▼               ▼               ▼
+   Flask App      PostgreSQL DB    Node Exporter
+        │
+        ▼
+   Prometheus
+        │
+        ▼
+    Grafana
+        │
+        ▼
+ AI Incident Analyzer
+
+AWS Services:
+- EC2
+- CloudWatch
+- SNS
 ```
 
 ### Infrastructure Components
@@ -134,19 +142,56 @@ Application Metrics
 | Prometheus | http://localhost:9090 |
 | PostgreSQL | Internal Docker Network |
 
+## Kubernetes Components
+
+| Component | Purpose |
+|------------|----------|
+| Deployment | Application Deployment |
+| Service | Internal/External Access |
+| HPA | Auto Scaling |
+| ConfigMap | Application Configuration |
+| Secret | Sensitive Data Management |
+| Helm | Kubernetes Package Management |
+| ArgoCD | GitOps Deployment Automation |
+
+## GitOps Workflow
+
+```text
+Developer
+    │
+    ▼
+Git Push
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+ArgoCD
+    │
+    ▼
+Helm Chart
+    │
+    ▼
+Kubernetes Cluster
+    │
+    ▼
+CloudOps Application
+```
 
 ## Key Achievements
 
 - Provisioned AWS Infrastructure using Terraform
-- Automated CI/CD using GitHub Actions
-- Containerized Application Stack using Docker Compose
-- Integrated Prometheus Monitoring and Grafana Dashboards
-- Implemented AI-based Incident Analysis Engine
-- Deployed Production Environment on AWS EC2
+- Infrastructure Provisioning using Terraform
+- Containerized Deployment with Docker & Docker Compose
+- Kubernetes Orchestration with Deployments and Services
+- Horizontal Pod Autoscaling (HPA)
+- Helm-based Kubernetes Package Management
+- GitOps Deployment using ArgoCD
+- CI/CD Automation with GitHub Actions
+- PostgreSQL Database Integration
+- Infrastructure Monitoring with Prometheus
+- Visualization and Dashboards using Grafana
+- Node Exporter System Metrics Collection
 - AWS CloudWatch Monitoring
-- Amazon SNS Email Alerts
-- Automated Incident Notifications
-- Real-time Infrastructure Monitoring using Prometheus
-- Node Exporter Metrics Collection
-- AI-Powered Incident Analysis based on live metrics
-- Automated Alerting with CloudWatch and SNS
+- AWS SNS Alert Notifications
+- AI-Powered Incident Analysis Engine
