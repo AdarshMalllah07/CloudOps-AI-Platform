@@ -1,18 +1,33 @@
 # AWS CloudWatch Monitoring
 
-Monitored Resources:
+## Overview
 
-- EC2 CPU Usage
+CloudWatch is used to monitor AWS EC2 infrastructure and generate alerts when system health degrades.
+
+## Monitored Metrics
+
+- CPU Utilization
+- Disk Usage
 - Memory Usage
-- Disk Utilization
 - Network Traffic
 
-Alerts:
+## Alerting
+
+Amazon SNS is integrated with CloudWatch alarms.
+
+### Notifications
 
 - CPU > 80%
 - Disk Usage > 80%
-- Instance Health Check Failure
+- Instance Status Check Failure
 
-Notification Channel:
+### Delivery Channel
 
-- Amazon SNS Email Alerts
+- Email Notifications via Amazon SNS
+
+## Benefits
+
+- Real-time infrastructure visibility
+- Automated incident detection
+- Proactive alerting
+- Improved operational reliability

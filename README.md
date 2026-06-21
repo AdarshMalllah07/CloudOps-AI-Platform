@@ -143,3 +143,6 @@ Application Metrics
 - Integrated Prometheus Monitoring and Grafana Dashboards
 - Implemented AI-based Incident Analysis Engine
 - Deployed Production Environment on AWS EC2
+- AWS CloudWatch Monitoring
+- Amazon SNS Email Alerts
+- Automated Incident Notifications
