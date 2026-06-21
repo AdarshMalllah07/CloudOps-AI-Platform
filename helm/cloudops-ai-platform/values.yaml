@@ -1,0 +1,10 @@
+﻿replicaCount: 2
+
+image:
+  repository: cloudops-ai-platform-cloudops-app
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
