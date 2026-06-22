@@ -24,8 +24,21 @@ def get_metric(query):
 
 
 def get_system_metrics():
+
+    cpu = get_metric(
+        '100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)'
+    )
+
+    memory = get_metric(
+        '(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100'
+    )
+
+    disk = get_metric(
+        '(1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) * 100'
+    )
+
     return {
-        "cpu": get_metric("up"),
-        "memory": 0,
-        "disk": 0
+        "cpu": round(cpu, 2),
+        "memory": round(memory, 2),
+        "disk": round(disk, 2)
     }

@@ -154,6 +154,20 @@ Application Metrics
 | Helm | Kubernetes Package Management |
 | ArgoCD | GitOps Deployment Automation |
 
+## Self-Healing Automation
+
+The platform includes an AI-assisted self-healing engine capable of:
+
+- Monitoring platform health
+- Detecting abnormal conditions
+- Performing automated remediation
+- Restarting unhealthy Kubernetes workloads
+- Integrating with Prometheus metrics and AI incident analysis
+
+Workflow:
+
+Prometheus → AI Analyzer → Self-Healing Engine → Kubernetes Recovery
+
 ## GitOps Workflow
 
 ```text
