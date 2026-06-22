@@ -1,11 +1,56 @@
-<h1>AI Operations Dashboard</h1>
+<!DOCTYPE html>
+<html>
 
-<h2>Metrics</h2>
+<head>
+    <title>AI Operations Dashboard</title>
+</head>
 
-<p>CPU: {{ metrics.cpu }}%</p>
-<p>Memory: {{ metrics.memory }}%</p>
-<p>Disk: {{ metrics.disk }}%</p>
+<body>
 
-<h2>AI Analysis</h2>
+    <h1>AI Operations Dashboard</h1>
 
-<p>{{ analysis }}</p>
+    <h2>System Metrics</h2>
+
+    <p>CPU Usage: {{ metrics.cpu }}%</p>
+    <p>Memory Usage: {{ metrics.memory }}%</p>
+    <p>Disk Usage: {{ metrics.disk }}%</p>
+
+    <hr>
+
+    <h2>Severity</h2>
+
+    <p>{{ analysis.severity }}</p>
+
+    <hr>
+
+    <h2>Detected Issues</h2>
+
+    <ul>
+        {% for issue in analysis.issues %}
+        <li>{{ issue }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h2>AI Recommendations</h2>
+
+    <ul>
+        {% for recommendation in analysis.recommendations %}
+        <li>{{ recommendation }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h2>Recovery Actions</h2>
+
+    <ul>
+        {% for action in analysis.recovery_actions %}
+        <li>{{ action }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>

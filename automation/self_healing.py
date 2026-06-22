@@ -6,9 +6,13 @@ from recovery_actions import (
     scale_deployment
 )
 
+
 def run():
 
     metrics = get_system_metrics()
+
+    print("Metrics:")
+    print(metrics)
 
     analysis = analyze_incident(
         cpu_usage=metrics["cpu"],
@@ -16,13 +20,21 @@ def run():
         disk_usage=metrics["disk"]
     )
 
+    print("\nAnalysis:")
     print(analysis)
 
     if metrics["cpu"] > 80:
+
+        print("\nACTION: Scaling deployment")
+
         scale_deployment(5)
 
     if metrics["memory"] > 90:
+
+        print("\nACTION: Restarting deployment")
+
         restart_deployment()
+
 
 if __name__ == "__main__":
     run()
