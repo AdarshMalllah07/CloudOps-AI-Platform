@@ -1,174 +1,110 @@
-```md
 ![Python](https://img.shields.io/badge/Python-3.13-blue)
 ![Flask](https://img.shields.io/badge/Flask-WebApp-black)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestration-blue)
+![Helm](https://img.shields.io/badge/Helm-Package%20Manager-blue)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-GitOps-orange)
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-purple)
-![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
 ![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-orange)
-![Grafana](https://img.shields.io/badge/Grafana-Dashboard-red)
+![Grafana](https://img.shields.io/badge/Grafana-Observability-red)
 
-# CloudOps-AI-Platform
+# CloudOps AI Platform
 
 ![CI](https://github.com/AdarshMalllah07/CloudOps-AI-Platform/actions/workflows/ci.yml/badge.svg)
-CloudOps-AI-Platform
-
-
-A cloud infrastructure management and monitoring platform built using Flask, PostgreSQL, Docker, Prometheus, Grafana, Terraform, GitHub Actions, and AWS.
 
 ## Overview
 
-CloudOps AI Platform helps manage infrastructure environments, servers, and applications while providing monitoring, observability, and cloud deployment capabilities.
+CloudOps AI Platform is an AI-powered CloudOps and SRE automation platform designed to demonstrate modern cloud-native infrastructure management, GitOps deployment practices, observability, automated recovery, and operational intelligence.
 
-The platform demonstrates modern DevOps practices including:
-
-- Infrastructure as Code (Terraform)
-- Containerization (Docker)
-- Monitoring (Prometheus)
-- Visualization (Grafana)
-- CI/CD (GitHub Actions)
-- Cloud Deployment (AWS EC2)
+The platform combines Kubernetes, GitOps, Infrastructure as Code, monitoring, alerting, and self-healing automation into a single operational workflow.
 
 ---
 
-## Service Endpoints
+## Key Features
 
-| Service | URL |
-|----------|------|
-| Flask Application | http://localhost:5000 |
-| Grafana Dashboard | http://localhost:3000 |
-| Prometheus | http://localhost:9090 |
+### Cloud Infrastructure
+
+- Infrastructure provisioning using Terraform
+- AWS EC2 deployment environment
+- PostgreSQL database integration
+- Containerized application deployment using Docker
+
+### Kubernetes & GitOps
+
+- Kubernetes-based workload orchestration
+- Helm package management
+- ArgoCD GitOps deployment workflow
+- Kubernetes Ingress configuration
+- Horizontal Pod Autoscaling (HPA)
+- ConfigMap and Secret management
+
+### Observability & Monitoring
+
+- Prometheus metrics collection
+- Grafana dashboards
+- Node Exporter system monitoring
+- Kubernetes Metrics Server
+- Prometheus alert rules
+- Infrastructure health monitoring
+
+### AI Operations & Automation
+
+- AI-powered incident analysis
+- Infrastructure health recommendations
+- Automated recovery actions
+- Kubernetes self-healing workflows
+- Webhook-driven remediation
+- Auto-scaling based recovery actions
+
+---
 
 ## Architecture Diagram
 
 ![Architecture Diagram](screenshots/CloudOps%20AI%20platform%20Architecture%20diagram.png)
 
+---
 
-```text
-                        GitHub Repository
-                                │
-                                ▼
-                      GitHub Actions CI/CD
-                                │
-                                ▼
-                           ArgoCD GitOps
-                                │
-                                ▼
-                          Helm Charts
-                                │
-                                ▼
-                     Kubernetes Cluster
-                                │
-        ┌───────────────┬───────────────┬───────────────┐
-        │               │               │
-        ▼               ▼               ▼
-   Flask App      PostgreSQL DB    Node Exporter
-        │
-        ▼
-   Prometheus
-        │
-        ▼
-    Grafana
-        │
-        ▼
- AI Incident Analyzer
-
-AWS Services:
-- EC2
-- CloudWatch
-- SNS
-```
-
-### Infrastructure Components
-
-| Component | Purpose |
-|------------|----------|
-| GitHub | Source code management |
-| GitHub Actions | Continuous Integration & Deployment |
-| Terraform | Infrastructure as Code provisioning |
-| AWS EC2 | Cloud hosting environment |
-| Docker Compose | Multi-container orchestration |
-| Flask | Backend application and dashboard |
-| PostgreSQL | Persistent data storage |
-| Prometheus | Metrics collection and monitoring |
-| Grafana | Visualization and dashboards |
-| AI Incident Analysis | Automated infrastructure health recommendations |
-
-### Deployment Flow
+## End-to-End Platform Flow
 
 ```text
 Developer
     │
     ▼
-Push Code to GitHub
+GitHub Repository
     │
     ▼
-GitHub Actions CI Pipeline
+GitHub Actions
     │
     ▼
-Automated Deployment to AWS EC2
+ArgoCD GitOps
     │
     ▼
-Docker Compose Rebuild
+Helm Charts
     │
     ▼
-Updated Application Available
+Kubernetes Cluster
+    │
+    ▼
+CloudOps Application
+    │
+    ▼
+Prometheus Monitoring
+    │
+    ▼
+Grafana Dashboards
+    │
+    ▼
+AI Incident Analysis
+    │
+    ▼
+Self-Healing Automation
 ```
 
-### Monitoring Flow
+---
 
-```text
-Application Metrics
-        │
-        ▼
-   Prometheus
-        │
-        ▼
-    Grafana
-        │
-        ▼
- Infrastructure Dashboard
-        │
-        ▼
- AI Incident Analysis
-```
-
-### Access Points
-
-| Service | URL |
-|----------|------|
-| Flask Application | http://localhost:5000 |
-| Grafana Dashboard | http://localhost:3000 |
-| Prometheus | http://localhost:9090 |
-| PostgreSQL | Internal Docker Network |
-
-## Kubernetes Components
-
-| Component | Purpose |
-|------------|----------|
-| Deployment | Application Deployment |
-| Service | Internal/External Access |
-| HPA | Auto Scaling |
-| ConfigMap | Application Configuration |
-| Secret | Sensitive Data Management |
-| Helm | Kubernetes Package Management |
-| ArgoCD | GitOps Deployment Automation |
-
-## Self-Healing Automation
-
-The platform includes an AI-assisted self-healing engine capable of:
-
-- Monitoring platform health
-- Detecting abnormal conditions
-- Performing automated remediation
-- Restarting unhealthy Kubernetes workloads
-- Integrating with Prometheus metrics and AI incident analysis
-
-Workflow:
-
-Prometheus → AI Analyzer → Self-Healing Engine → Kubernetes Recovery
-
-## GitOps Workflow
+## GitOps Deployment Workflow
 
 ```text
 Developer
@@ -180,32 +116,139 @@ Git Push
 GitHub Repository
     │
     ▼
+GitHub Actions
+    │
+    ▼
 ArgoCD
     │
     ▼
-Helm Chart
+Helm Charts
     │
     ▼
 Kubernetes Cluster
     │
     ▼
-CloudOps Application
+Application Deployment
 ```
+
+---
+
+## Automated Self-Healing Workflow
+
+```text
+Prometheus Alert
+        │
+        ▼
+Alert Webhook
+        │
+        ▼
+AI Incident Analyzer
+        │
+        ▼
+Recovery Engine
+        │
+ ┌──────┴──────┐
+ ▼             ▼
+
+Scale Pods   Restart Workload
+        │
+        ▼
+Kubernetes Recovery
+```
+
+---
+
+## Technology Stack
+
+| Category | Technologies |
+|-----------|-------------|
+| Backend | Flask, Python |
+| Database | PostgreSQL |
+| Containerization | Docker, Docker Compose |
+| Orchestration | Kubernetes |
+| Package Management | Helm |
+| GitOps | ArgoCD |
+| Infrastructure as Code | Terraform |
+| CI/CD | GitHub Actions |
+| Monitoring | Prometheus |
+| Visualization | Grafana |
+| Cloud Platform | AWS EC2 |
+| Observability | Node Exporter, Metrics Server |
+| Automation | Self-Healing Engine |
+
+---
+
+## Kubernetes Components
+
+| Component | Purpose |
+|------------|----------|
+| Deployment | Application Deployment |
+| Service | Service Exposure |
+| Ingress | Traffic Routing |
+| HPA | Automatic Scaling |
+| ConfigMap | Configuration Management |
+| Secret | Sensitive Configuration |
+| Helm | Package Management |
+| ArgoCD | GitOps Automation |
+
+---
+
+## Service Endpoints
+
+| Service | URL |
+|----------|------|
+| Application | http://localhost:5000 |
+| Grafana | http://localhost:3000 |
+| Prometheus | http://localhost:9090 |
+
+---
+
+## Screenshots
+
+### ArgoCD
+![ArgoCD](screenshots/argocd.png)
+
+### Grafana Dashboard
+![Grafana](screenshots/grafana-dashboard.png)
+
+### Prometheus
+![Prometheus](screenshots/prometheus.png)
+
+### Kubernetes
+![Kubernetes](screenshots/kubernetes-pods.png)
+
+### AI Operations Dashboard
+![AI Operations](screenshots/ai-operations.png)
+
+---
 
 ## Key Achievements
 
-- Provisioned AWS Infrastructure using Terraform
-- Infrastructure Provisioning using Terraform
-- Containerized Deployment with Docker & Docker Compose
-- Kubernetes Orchestration with Deployments and Services
-- Horizontal Pod Autoscaling (HPA)
-- Helm-based Kubernetes Package Management
-- GitOps Deployment using ArgoCD
-- CI/CD Automation with GitHub Actions
-- PostgreSQL Database Integration
-- Infrastructure Monitoring with Prometheus
-- Visualization and Dashboards using Grafana
-- Node Exporter System Metrics Collection
-- AWS CloudWatch Monitoring
-- AWS SNS Alert Notifications
-- AI-Powered Incident Analysis Engine
+- Built a cloud-native application platform on Kubernetes
+- Implemented GitOps deployment workflows using ArgoCD
+- Provisioned infrastructure using Terraform and AWS
+- Automated CI/CD pipelines with GitHub Actions
+- Configured Kubernetes Ingress and HPA
+- Integrated Prometheus and Grafana for observability
+- Developed AI-powered incident analysis workflows
+- Implemented automated self-healing and recovery actions
+- Built webhook-based Kubernetes remediation workflows
+- Demonstrated end-to-end DevOps and SRE practices
+
+---
+
+## Future Enhancements
+
+- Slack-based operational notifications
+- Advanced AI root cause analysis
+- AlertManager integration
+- Multi-environment deployment strategy
+- EKS deployment support
+
+---
+
+## Author
+
+**Adarsh Mallah**
+
+Cloud / DevOps Engineer Portfolio Project
