@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+
+metadata:
+  name: cloudops-alerts
+  namespace: monitoring
+
+spec:
+  groups:
+    - name: cloudops.rules
+
+      rules:
+        - alert: HighCPUUsage
+          expr: 100 - (avg(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+          for: 1m
+
+          labels:
+            severity: critical
+
+          annotations:
+            summary: High CPU Usage
+
+        - alert: PodRestartDetected
+          expr: increase(kube_pod_container_status_restarts_total[5m]) > 0
+          for: 1m
+
+          labels:
+            severity: warning
+
+          annotations:
+            summary: Pod Restart Detected

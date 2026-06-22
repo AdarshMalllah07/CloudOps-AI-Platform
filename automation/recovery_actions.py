@@ -1,10 +1,6 @@
 import subprocess
 
-
 def restart_deployment():
-
-    print("Restarting deployment...")
-
     subprocess.run([
         "kubectl",
         "rollout",
@@ -14,11 +10,7 @@ def restart_deployment():
         "cloudops"
     ])
 
-
 def scale_deployment(replicas):
-
-    print(f"Scaling deployment to {replicas} replicas")
-
     subprocess.run([
         "kubectl",
         "scale",

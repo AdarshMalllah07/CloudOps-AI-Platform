@@ -71,3 +71,20 @@ def register_routes(app):
             analysis=analysis,
             metrics=metrics
         )
+    
+    @app.route("/ai-operations")
+    def ai_operations():
+
+    metrics = get_system_metrics()
+
+    analysis = analyze_incident(
+        cpu_usage=metrics["cpu"],
+        memory_usage=metrics["memory"],
+        disk_usage=metrics["disk"]
+    )
+
+    return render_template(
+        "ai/operations.html",
+        metrics=metrics,
+        analysis=analysis
+    )   
