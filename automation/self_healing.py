@@ -43,3 +43,44 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+import subprocess
+
+
+def restart_application():
+
+    print("Restarting application...")
+
+    subprocess.run([
+        "kubectl",
+        "rollout",
+        "restart",
+        "deployment/cloudops-app",
+        "-n",
+        "cloudops"
+    ])
+
+
+def scale_application():
+
+    print("Scaling application...")
+
+    subprocess.run([
+        "kubectl",
+        "scale",
+        "--replicas=5",
+        "deployment/cloudops-app",
+        "-n",
+        "cloudops"
+    ])
+
+
+if __name__ == "__main__":
+
+    action = input("restart / scale : ")
+
+    if action == "restart":
+        restart_application()
+
+    elif action == "scale":
+        scale_application()
