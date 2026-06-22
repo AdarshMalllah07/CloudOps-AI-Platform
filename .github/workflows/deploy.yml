@@ -21,9 +21,11 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
 
           script: |
-            cd /home/ubuntu/CloudOps-AI-Platform/CloudOps-AI-Platform
+            cd /home/ubuntu/CloudOps-AI-Platform
 
-            git pull origin main
+            git fetch origin
+
+            git reset --hard origin/main
 
             sudo docker compose down
 
