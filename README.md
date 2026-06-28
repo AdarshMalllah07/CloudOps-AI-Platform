@@ -203,25 +203,6 @@ Kubernetes Recovery
 
 ---
 
-## Screenshots
-
-### ArgoCD
-![ArgoCD](screenshots/argocd.png)
-
-### Grafana Dashboard
-![Grafana](screenshots/grafana-dashboard.png)
-
-### Prometheus
-![Prometheus](screenshots/prometheus.png)
-
-### Kubernetes
-![Kubernetes](screenshots/kubernetes-pods.png)
-
-### AI Operations Dashboard
-![AI Operations](screenshots/ai-operations.png)
-
----
-
 ## Key Achievements
 
 - Built a cloud-native application platform on Kubernetes
